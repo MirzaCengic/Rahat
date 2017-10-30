@@ -16,6 +16,6 @@ read_csvs <- function(folder_path, pattern = "*.csv$")
   for(file in files_to_read)
   {
     perpos <- which(strsplit(file, "")[[1]] == ".")
-    assign(gsub(" ","", substr(file, 1, perpos - 1)), read.csv(paste(path, file, sep = "")))
+    assign(gsub(" ","", substr(file, 1, perpos - 1)), read.csv(paste(folder_path, file, sep = "")))
   }
 }
