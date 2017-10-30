@@ -11,6 +11,11 @@
 #' @examples
 read_csvs <- function(folder_path, pattern = "*.csv$")
 {
-  perpos <- which(strsplit(file, "")[[1]] == ".")
-  assign(gsub(" ","", substr(file, 1, perpos - 1)), read.csv(paste(path, file, sep = "")))
+  files_to_read <- list.files(path = folder_path, pattern = pattern)
+
+  for(file in files_to_read)
+  {
+    perpos <- which(strsplit(file, "")[[1]] == ".")
+    assign(gsub(" ","", substr(file, 1, perpos - 1)), read.csv(paste(path, file, sep = "")))
+  }
 }
