@@ -1,0 +1,34 @@
+---
+output: rmarkdown::github_document
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+<!-- output: rmarkdown::github_document -->
+<!-- output: html_notebook -->
+
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Rahat package
+
+# My personal package Rahat
+
+Da insan bude R-hatniji
+*Made for personal use only!*
+
+To install the package run:
+```{r install, eval = FALSE}
+devtools::install_github("mirzacengic/Rahat")
+```
+
+## Function list
+- `milkunize()`  
+- `insert_slurm_header()`  
+- `today()`  
+- `%notin%`  
+- `read_csvs()` - *deprecated*.
+
+
