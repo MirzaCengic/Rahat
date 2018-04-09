@@ -1,5 +1,6 @@
 #' Read multiple csv files
 #'
+#' This function is \emph{deprecated}. Use purrr with \code{map(read_csv); reduce(rbind)}approach.
 #' This function will load all the csv files from the given directory with the selected pattern.
 #'
 #' @param folder_path Folder path where the files will be loaded from.
@@ -8,7 +9,7 @@
 #' @return Multiple dataframes
 #' @export
 #'
-#' @examples
+#' @examples None.
 read_csvs <- function(folder_path, pattern = "*.csv$")
 {
   files_to_read <- list.files(path = folder_path, pattern = pattern)

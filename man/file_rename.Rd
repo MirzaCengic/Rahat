@@ -11,6 +11,12 @@ file_rename(from, to)
 
 \item{to}{Name of output file name}
 }
+\value{
+None.
+}
 \description{
 Rename file
+}
+\examples{
+None.
 }

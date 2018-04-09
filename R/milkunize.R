@@ -1,7 +1,9 @@
+#' Milkunize
+#'
 #' Generate file path for the milkun drives
 #'
 #' @param path Folder path
-#' @param drive Milkun drive.
+#' @param drive Milkun drive. One in c("m1", "m2", "m5", "m17").
 #'
 #' @return Folder path with milkun location
 #' @export

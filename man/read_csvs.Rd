@@ -15,5 +15,9 @@ read_csvs(folder_path, pattern = "*.csv$")
 Multiple dataframes
 }
 \description{
+This function is \emph{deprecated}. Use purrr with \code{map(read_csv); reduce(rbind)}approach.
 This function will load all the csv files from the given directory with the selected pattern.
+}
+\examples{
+None.
 }

@@ -1,12 +1,12 @@
 #' Rename file
 #'
-#' @param from File to be renamed 
+#' @param from File to be renamed
 #' @param to Name of output file name
 #'
-#' @return
-#' @export
+#' @return None.
 #'
-#' @examples
+#'
+#' @examples None.
 file_rename <- function(from, to) {
   todir <- dirname(to)
   if (!isTRUE(file.info(todir)$isdir)) dir.create(todir, recursive=TRUE)

@@ -2,14 +2,14 @@
 % Please edit documentation in R/milkunize.R
 \name{milkunize}
 \alias{milkunize}
-\title{Generate file path for the milkun drives}
+\title{Milkunize}
 \usage{
 milkunize(path, drive = "m1")
 }
 \arguments{
 \item{path}{Folder path}
 
-\item{drive}{Milkun drive.}
+\item{drive}{Milkun drive. One in c("m1", "m2", "m5", "m17").}
 }
 \value{
 Folder path with milkun location
