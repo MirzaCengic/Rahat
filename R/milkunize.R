@@ -4,29 +4,53 @@
 #'
 #' @param path Folder path
 #' @param drive Milkun drive. One in c("m1", "m2", "m5", "m17").
+#' @param method Method how the local system is detected. Either sysname (windows or linux), or user (mcengic on cluster or mirzacengic on the laptop).
 #'
 #' @return Folder path with milkun location
 #' @export
 #'
 #' @examples milkunize("Projects/Land_use")
-milkunize <- function(path, drive = "m1")
+milkunize <- function(path, drive = "m1", method = "user")
 {
-  stopifnot(drive %in% c("m1", "m2", "m5", "m17"))
 
-  if(Sys.info()["sysname"] == "Windows"){
-  basepath_milkun1 <- "\\\\milkun1-srv.science.ru.nl/milkun1/Mirza_Cengic/"
-  # .basepath_LU <- "\\\\milkun1-srv.science.ru.nl/Mirza_Cengic/Projects/Land_use/"
-  basepath_milkun2 <- "\\\\milkun2-srv.science.ru.nl/milkun2/Mirza_Cengic/"
-  basepath_milkun5 <- "\\\\milkun5-srv.science.ru.nl/milkun5/Merit/"
-  basepath_milkun17 <- "\\\\milkun17-srv.science.ru.nl/milkun17/"
+  stopifnot(drive %in% c("m1", "m2", "m5", "m17"), method %in% c("user", "sysname"))
 
-} else {
-  basepath_milkun1 <- "/vol/milkun1/Mirza_Cengic/"
-  basepath_milkun2 <- "/vol/milkun2/Mirza_Cengic/"
-  # .basepath_LU <- "/vol/milkun1/Mirza_Cengic/Projects/Land_use/"
-  basepath_milkun5 <- "/vol/milkun5/Merit/"
-  basepath_milkun17 <- "/vol/milkun17/"
-}
+  if (method == "user")
+  {
+    if(Sys.info()["user"] == "mirzacengic"){
+      basepath_milkun1 <- "/home/mirzacengic/milkun1/Mirza_Cengic/"
+      # .basepath_LU <- "\\\\milkun1-srv.science.ru.nl/Mirza_Cengic/Projects/Land_use/"
+      basepath_milkun2 <- "/home/mirzacengic/milkun2/Mirza_Cengic/"
+      basepath_milkun5 <- "/home/mirzacengic/milkun5/Merit/"
+      basepath_milkun17 <- "/home/mirzacengic/milkun17/"
+      }
+    if (Sys.info()["user"] == "mcengic")
+    {
+      basepath_milkun1 <- "/vol/milkun1/Mirza_Cengic/"
+      basepath_milkun2 <- "/vol/milkun2/Mirza_Cengic/"
+      # .basepath_LU <- "/vol/milkun1/Mirza_Cengic/Projects/Land_use/"
+      basepath_milkun5 <- "/vol/milkun5/Merit/"
+      basepath_milkun17 <- "/vol/milkun17/"
+    }
+  }
+  if (method == "sysname")
+  {
+    if(Sys.info()["sysname"] == "Windows"){
+      basepath_milkun1 <- "\\\\milkun1-srv.science.ru.nl/milkun1/Mirza_Cengic/"
+      # .basepath_LU <- "\\\\milkun1-srv.science.ru.nl/Mirza_Cengic/Projects/Land_use/"
+      basepath_milkun2 <- "\\\\milkun2-srv.science.ru.nl/milkun2/Mirza_Cengic/"
+      basepath_milkun5 <- "\\\\milkun5-srv.science.ru.nl/milkun5/Merit/"
+      basepath_milkun17 <- "\\\\milkun17-srv.science.ru.nl/milkun17/"
+
+    } else {
+      basepath_milkun1 <- "/vol/milkun1/Mirza_Cengic/"
+      basepath_milkun2 <- "/vol/milkun2/Mirza_Cengic/"
+      # .basepath_LU <- "/vol/milkun1/Mirza_Cengic/Projects/Land_use/"
+      basepath_milkun5 <- "/vol/milkun5/Merit/"
+      basepath_milkun17 <- "/vol/milkun17/"
+    }
+  }
+
 
   if (drive == "m1")
     {

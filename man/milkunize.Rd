@@ -4,12 +4,14 @@
 \alias{milkunize}
 \title{Milkunize}
 \usage{
-milkunize(path, drive = "m1")
+milkunize(path, drive = "m1", method = "user")
 }
 \arguments{
 \item{path}{Folder path}
 
 \item{drive}{Milkun drive. One in c("m1", "m2", "m5", "m17").}
+
+\item{method}{Method how the local system is detected. Either sysname (windows or linux), or user (mcengic on cluster or mirzacengic on the laptop).}
 }
 \value{
 Folder path with milkun location
