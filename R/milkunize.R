@@ -70,3 +70,73 @@ milkunize <- function(path, drive = "m1", method = "user")
   }
   return(mypath)
 }
+
+
+
+#' Milkunize2
+#'
+#' Generate file path for the milkun drives. Version 2 of the function is for updated milkun drives (milkundata, milkunB, and milkunarc)
+#'
+#' @param path Path that will be milkunized
+#' @param drive Milkun drive. One in c("home", "archive", "data").
+#' @param method Method how the local system is detected. Either sysname (windows or linux), or user (mcengic on cluster or mirzacengic on the laptop).
+#'
+#' @return Folder path with milkun location
+#' @export
+#'
+#' @examples milkunize("Projects/Land_use")
+milkunize2 <- function(path, drive = "home", method = "user")
+{
+
+  stopifnot(drive %in% c("home", "archive", "data"), method %in% c("user"
+                                                                   # , "sysname"
+                                                                   ))
+
+  if (method == "user")
+  {
+    if(Sys.info()["user"] == "mirzacengic"){
+      basepath_milkunB <- "/home/mirzacengic/milkunB/mcengic/"
+      basepath_milkunarc <- "/home/mirzacengic/milkunarc/mcengic/"
+      basepath_milkundata <- "/home/mirzacengic/milkundata/"
+    }
+    if (Sys.info()["user"] == "mcengic")
+    {
+      basepath_milkunB <- "/vol/milkunB/mcengic/"
+      basepath_milkunarc <- "/vol/milkunarc/mcengic/"
+      basepath_milkundata <- "/vol/milkundata/"
+    }
+  }
+  # if (method == "sysname")
+  # {
+  #   if(Sys.info()["sysname"] == "Windows"){
+  #     basepath_milkun1 <- "\\\\milkun1-srv.science.ru.nl/milkun1/Mirza_Cengic/"
+  #     # .basepath_LU <- "\\\\milkun1-srv.science.ru.nl/Mirza_Cengic/Projects/Land_use/"
+  #     basepath_milkun2 <- "\\\\milkun2-srv.science.ru.nl/milkun2/Mirza_Cengic/"
+  #     basepath_milkun5 <- "\\\\milkun5-srv.science.ru.nl/milkun5/Merit/"
+  #     basepath_milkun17 <- "\\\\milkun17-srv.science.ru.nl/milkun17/"
+  #
+  #   } else {
+  #     basepath_milkun1 <- "/vol/milkun1/Mirza_Cengic/"
+  #     basepath_milkun2 <- "/vol/milkun2/Mirza_Cengic/"
+  #     # .basepath_LU <- "/vol/milkun1/Mirza_Cengic/Projects/Land_use/"
+  #     basepath_milkun5 <- "/vol/milkun5/Merit/"
+  #     basepath_milkun17 <- "/vol/milkun17/"
+  #   }
+  # }
+
+
+  if (drive == "home")
+  {
+    mypath <- paste0(basepath_milkunB, path)
+  }
+  if (drive == "archive")
+  {
+    mypath <- paste0(basepath_milkunarc, path)
+  }
+  if (drive == "data")
+  {
+    mypath <- paste0(basepath_milkundata, path)
+  }
+
+  return(mypath)
+}
