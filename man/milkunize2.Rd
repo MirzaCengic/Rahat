@@ -14,7 +14,7 @@ milkunize2(path, drive = "home", method = "user")
 \item{method}{Method how the local system is detected. Either sysname (windows or linux), or user (mcengic on cluster or mirzacengic on the laptop).}
 }
 \value{
-Folder path with milkun location
+Folder path with milkun2 location
 }
 \description{
 Generate file path for the milkun drives. Version 2 of the function is for updated milkun drives (milkundata, milkunB, and milkunarc)

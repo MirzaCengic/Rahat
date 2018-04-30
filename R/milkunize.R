@@ -81,16 +81,14 @@ milkunize <- function(path, drive = "m1", method = "user")
 #' @param drive Milkun drive. One in c("home", "archive", "data").
 #' @param method Method how the local system is detected. Either sysname (windows or linux), or user (mcengic on cluster or mirzacengic on the laptop).
 #'
-#' @return Folder path with milkun location
+#' @return Folder path with milkun2 location
 #' @export
 #'
 #' @examples milkunize("Projects/Land_use")
 milkunize2 <- function(path, drive = "home", method = "user")
 {
 
-  stopifnot(drive %in% c("home", "archive", "data"), method %in% c("user"
-                                                                   # , "sysname"
-                                                                   ))
+  stopifnot(drive %in% c("home", "archive", "data"), method == "user")
 
   if (method == "user")
   {
@@ -127,16 +125,16 @@ milkunize2 <- function(path, drive = "home", method = "user")
 
   if (drive == "home")
   {
-    mypath <- paste0(basepath_milkunB, path)
+    path <- paste0(basepath_milkunB, path)
   }
   if (drive == "archive")
   {
-    mypath <- paste0(basepath_milkunarc, path)
+    path <- paste0(basepath_milkunarc, path)
   }
   if (drive == "data")
   {
-    mypath <- paste0(basepath_milkundata, path)
+    path <- paste0(basepath_milkundata, path)
   }
 
-  return(mypath)
+  return(path)
 }

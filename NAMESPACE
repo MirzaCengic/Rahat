@@ -3,6 +3,7 @@
 export("%notin%")
 export(insert_slurm_header)
 export(milkunize)
+export(milkunize2)
 export(read_csvs)
 export(today)
 importFrom(glue,glue)
