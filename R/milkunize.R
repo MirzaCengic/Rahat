@@ -93,8 +93,8 @@ milkunize2 <- function(path, drive = "home", method = "user")
   if (method == "user")
   {
     if(Sys.info()["user"] == "mirzacengic"){
-      basepath_milkunB <- "/home/mirzacengic/milkunB/mcengic/"
-      basepath_milkunarc <- "/home/mirzacengic/milkunarc/mcengic/"
+      basepath_milkunB <- "/home/mirzacengic/milkunB/"
+      basepath_milkunarc <- "/home/mirzacengic/milkunarc/"
       basepath_milkundata <- "/home/mirzacengic/milkundata/"
     }
     if (Sys.info()["user"] == "mcengic")
