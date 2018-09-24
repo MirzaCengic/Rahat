@@ -103,24 +103,36 @@ milkunize2 <- function(path, drive = "home", method = "user")
       basepath_milkunarc <- "/vol/milkunarc/mcengic/"
       basepath_milkundata <- "/vol/milkundata/"
     }
+    if(Sys.info()["user"] == "mirza")
+      {
+      basepath_milkunB <- "/home/mirza/milkunB/"
+      basepath_milkunarc <- "/home/mirza/milkunarc/"
+      basepath_milkundata <- "/home/mirza/milkundata/"
+    }
   }
-  # if (method == "sysname")
-  # {
-  #   if(Sys.info()["sysname"] == "Windows"){
-  #     basepath_milkun1 <- "\\\\milkun1-srv.science.ru.nl/milkun1/Mirza_Cengic/"
-  #     # .basepath_LU <- "\\\\milkun1-srv.science.ru.nl/Mirza_Cengic/Projects/Land_use/"
-  #     basepath_milkun2 <- "\\\\milkun2-srv.science.ru.nl/milkun2/Mirza_Cengic/"
-  #     basepath_milkun5 <- "\\\\milkun5-srv.science.ru.nl/milkun5/Merit/"
-  #     basepath_milkun17 <- "\\\\milkun17-srv.science.ru.nl/milkun17/"
-  #
-  #   } else {
-  #     basepath_milkun1 <- "/vol/milkun1/Mirza_Cengic/"
-  #     basepath_milkun2 <- "/vol/milkun2/Mirza_Cengic/"
-  #     # .basepath_LU <- "/vol/milkun1/Mirza_Cengic/Projects/Land_use/"
-  #     basepath_milkun5 <- "/vol/milkun5/Merit/"
-  #     basepath_milkun17 <- "/vol/milkun17/"
-  #   }
-  # }
+  if (method == "sysname")
+  {
+    if(Sys.info()["sysname"] == "Windows"){
+
+      basepath_milkunB <- "M:/"
+      basepath_milkunarc <- "R:/"
+      basepath_milkundata <- "Z:/"
+
+    } else {
+
+      if (Sys.info()["user"] == "mirzacengic"){
+        basepath_milkunB <- "/home/mirzacengic/milkunB/"
+        basepath_milkunarc <- "/home/mirzacengic/milkunarc/"
+        basepath_milkundata <- "/home/mirzacengic/milkundata/"
+      }
+      if (Sys.info()["user"] == "mcengic")
+      {
+        basepath_milkunB <- "/vol/milkunB/mcengic/"
+        basepath_milkunarc <- "/vol/milkunarc/mcengic/"
+        basepath_milkundata <- "/vol/milkundata/"
+      }
+    }
+  }
 
 
   if (drive == "home")
