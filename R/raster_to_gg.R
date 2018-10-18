@@ -17,6 +17,5 @@ raster_to_gg <- function(x)
 
   x <- as(x, "SpatialPixelsDataFrame")
   x <- as.data.frame(x)
-  names(x) <- c("value", "x", "y")
   return(x)
 }
