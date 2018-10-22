@@ -4,29 +4,29 @@
 \alias{insert_slurm_header}
 \title{Insert SLURM header}
 \usage{
-insert_slurm_header(partition = "milkunshort", email_type = "FAIL",
+insert_slurm_header(partition = "milkun", email_type = "FAIL",
   email = "mirzaceng@gmail.com", memory = "20G", time = "6:00:00",
   log_file = "")
 }
 \arguments{
-\item{partition}{Cluster partition. Default is milkunshort. Use either milkun or milkunshort.}
+\item{partition}{Character. Cluster partition. Default is milkun. Use either milkun or milkunshort.}
 
-\item{email_type}{Type of email to send to user. See SLURM help. Default is FAIL.}
+\item{email_type}{Character. Type of email to send to user. See SLURM help. Default is FAIL.}
 
-\item{email}{Email address to which send the emails to. Default is mirzaceng@gmail.com.}
+\item{email}{Character. Email address to which send the emails to. Default is mirzaceng@gmail.com.}
 
-\item{memory}{Memory allocated to the process. Default is 20G.}
+\item{memory}{Character. Memory allocated to the process. Default is 20G. Add the required unit to the memory amount.}
 
-\item{time}{Time allocated to the process. Default is 6 hours (6:00:00).}
+\item{time}{Character. Time allocated to the process. Default is 6 hours (6:00:00).}
 
-\item{log_file}{Path for the log file. Default path is empty.}
+\item{log_file}{Character. Path for the log file. Default path is empty. Example: \code{log_file = "/vol/milkun/my_log.log"}}
 }
 \value{
 None.
 }
 \description{
 Use this function to insert SLURM header to the top of the current R script.
-The script has to be opened in RStudio. Default values are higly customized for me!
+This function will only work in RStudio, as it uses \code{rstudioapi} package to add text. Default values are higly customized for me!
 }
 \examples{
 insert_slurm_header()

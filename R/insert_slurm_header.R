@@ -1,14 +1,14 @@
 #' Insert SLURM header
 #'
 #' Use this function to insert SLURM header to the top of the current R script.
-#' The script has to be opened in RStudio. Default values are higly customized for me!
+#' This function will only work in RStudio, as it uses \code{rstudioapi} package to add text. Default values are higly customized for me!
 #'
-#' @param partition Cluster partition. Default is milkunshort. Use either milkun or milkunshort.
-#' @param email_type Type of email to send to user. See SLURM help. Default is FAIL.
-#' @param email Email address to which send the emails to. Default is mirzaceng@gmail.com.
-#' @param memory Memory allocated to the process. Default is 20G.
-#' @param time Time allocated to the process. Default is 6 hours (6:00:00).
-#' @param log_file Path for the log file. Default path is empty.
+#' @param partition Character. Cluster partition. Default is milkun. Use either milkun or milkunshort.
+#' @param email_type Character. Type of email to send to user. See SLURM help. Default is FAIL.
+#' @param email Character. Email address to which send the emails to. Default is mirzaceng@gmail.com.
+#' @param memory Character. Memory allocated to the process. Default is 20G. Add the required unit to the memory amount.
+#' @param time Character. Time allocated to the process. Default is 6 hours (6:00:00).
+#' @param log_file Character. Path for the log file. Default path is empty. Example: \code{log_file = "/vol/milkun/my_log.log"}
 #'
 #' @return None.
 #' @export
@@ -16,7 +16,8 @@
 #' @examples insert_slurm_header()
 #' @importFrom glue glue
 #' @importFrom rstudioapi insertText
-insert_slurm_header <- function(partition = "milkunshort", email_type = "FAIL", email = "mirzaceng@gmail.com",
+#'
+insert_slurm_header <- function(partition = "milkun", email_type = "FAIL", email = "mirzaceng@gmail.com",
                                 memory = "20G", time = "6:00:00", log_file = "")
 {
 
@@ -27,7 +28,7 @@ insert_slurm_header <- function(partition = "milkunshort", email_type = "FAIL", 
 #SBATCH --mail-type={email_type}
 #SBATCH --mail-user={email}
 #SBATCH --time={time}
-#SBATCH --output {log_file}
+#SBATCH --output \"{log_file}\"
 #SBATCH --mem={memory}
 \n
 \n")
