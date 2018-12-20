@@ -5,13 +5,15 @@
 \title{Today
 Get today's date}
 \usage{
-today(sep = "_")
+today(format = "computer", sep = "_")
 }
 \arguments{
-\item{sep}{Format separator. Character. Default is "_".}
+\item{format}{Character. Return computer-friendly or human-friendly format. One in c("computer", "human").}
+
+\item{sep}{Character. Format separator. Default is "_".}
 }
 \value{
-Character. Day Month Year format.
+Character.
 }
 \description{
 Today

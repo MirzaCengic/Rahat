@@ -39,6 +39,8 @@ create_project <- function(name, github = FALSE, private_repo = FALSE, manuscrip
   {
     use_github(pkg = name, private = private_repo)
     use_github_links(name)
+    cat("\n^Data_raw$ \n^Data$ \n", sep = "",
+        file = file.path(name, ".gitignore"), append = TRUE)
 
     if (travis)
     {
