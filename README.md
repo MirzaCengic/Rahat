@@ -21,6 +21,9 @@ Function list
 
 -   `milkunize()`
 -   `insert_slurm_header()`
+-   `insert_script_description()`
+-   `create_project()`
+-   `raster_to_gg()`
 -   `today()`
 -   `%notin%`
 -   `read_csvs()` - *deprecated*.
