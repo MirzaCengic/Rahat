@@ -2,6 +2,7 @@
 
 export("%notin%")
 export(create_project)
+export(insert_script_description)
 export(insert_slurm_header)
 export(milkunize)
 export(milkunize2)
